@@ -3,7 +3,7 @@ import React from 'react';
 const Header: React.FC = () => (
   <header className="navbar navbar-expand-lg navbar-dark bg-primary">
     <div className="container">
-      <a className="navbar-brand" href="#">MiLogo</a>
+      <a className="navbar-brand" href="#">WaynerGT</a>
       <button
         className="navbar-toggler"
         type="button"
