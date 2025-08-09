@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import logo from './assets/logo.png'
 import Header from './components/Header';
 import Main from './components/Main';
 import SectionCards from './components/SectionCards';
 import Footer from './components/Footer';
+import './App.css';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -12,27 +14,18 @@ function App() {
       <Header />
       <Main />
 
-      {/* Puedes dejar tu logo y contador como sección de ejemplo */}
       <section className="container text-center my-4">
-        <div>
-          <a href="https://vite.dev" target="_blank" rel="noopener noreferrer">
-            <img src="/vite.svg" className="logo" alt="Vite logo" style={{ height: 80, margin: 8 }} />
-          </a>
-          <a href="https://react.dev" target="_blank" rel="noopener noreferrer">
-            <img src="/src/assets/react.svg" className="logo react" alt="React logo" style={{ height: 80, margin: 8 }} />
-          </a>
+        <div className="d-flex justify-content-center align-items-center gap-4 my-3 flex-wrap">
+          <img src={logo} className="logo" alt="Logo de la Empresa" />
         </div>
-        <h2>Vite + React</h2>
+        <h2>UMG CHIQUIMULILLA</h2>
         <div className="card p-3 my-2">
           <button className="btn btn-primary" onClick={() => setCount((count) => count + 1)}>
-            count is {count}
+            Boton de conteo de prueba... {count}
           </button>
-          <p>
-            Edita <code>src/App.tsx</code> y guarda para probar HMR
-          </p>
         </div>
         <p className="read-the-docs">
-          Haz clic en los logos para aprender más
+          Esto es una prueba de una Web Responsiva
         </p>
       </section>
 

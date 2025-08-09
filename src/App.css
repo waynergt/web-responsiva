@@ -1,12 +1,27 @@
+body {
+  background: #e9ecef; 
+}
+
+.navbar {
+  background-color: #343a40 !important; 
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
-
+.btn-primary {
+  background-color: #343a40 !important; 
+  border-color: #576858 !important;
+}
+.btn-primary:hover, .btn-primary:focus {
+  background-color: #343a40 !important;
+  border-color: #576858  !important;
+}
 .logo {
-  height: 6em;
+  height: 25em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
@@ -32,11 +47,13 @@
     animation: logo-spin infinite 20s linear;
   }
 }
-
 .card {
+  background: rgba(255,255,255,0.13);
+  box-shadow: none;
+  backdrop-filter: blur(6px);
   padding: 2em;
 }
 
 .read-the-docs {
-  color: #888;
+  color: #343a40;
 }
