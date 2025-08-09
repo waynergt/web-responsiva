@@ -54,7 +54,6 @@ Puedes ver la aplicación funcionando en el siguiente enlace:
 
 [https://tu-app-ejemplo.vercel.app/](https://web-responsiva.vercel.app/)
 
-> _Nota: Reemplaza el enlace con tu URL real de despliegue en Vercel, Netlify o GitHub Pages._
 
 ---
 
