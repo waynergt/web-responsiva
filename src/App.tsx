@@ -16,7 +16,7 @@ function App() {
 
       <section className="container text-center my-4">
         <div className="d-flex justify-content-center align-items-center gap-4 my-3 flex-wrap">
-          <img src={logo} className="logo" alt="Logo de la Empresa" />
+          <img src={logo} className="logo" alt="Logo UMG" />
         </div>
         <h2>UMG CHIQUIMULILLA</h2>
         <div className="card p-3 my-2">
@@ -25,7 +25,7 @@ function App() {
           </button>
         </div>
         <p className="read-the-docs">
-          Esto es una prueba de una Web Responsiva
+          Esto es una prueba de una Web Responsivo
         </p>
       </section>
 
