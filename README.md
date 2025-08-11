@@ -58,6 +58,7 @@ Puedes ver la aplicación funcionando en el siguiente enlace:
 Para asegurar la visualización de las imágenes, coloca las capturas de pantalla en la carpeta `/screenshots` junto a este archivo, con los siguientes nombres:
 - `mobile.png`
 - `tablet.png`
+- `tablet2.png`
 - `desktop.png`
 
 ---
