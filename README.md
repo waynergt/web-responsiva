@@ -4,13 +4,14 @@
 
 A continuación se muestran capturas del diseño en las tres vistas principales:
 
-### Vista Móvil (≤ 767px)
+### Vista Móvil (≤ 600px)
 ![Captura móvil](./screenshots/mobile.png)
 
-### Vista Tableta (768px - 991px)
+### Vista Tableta (601px - 1024px)
 ![Captura tableta](./screenshots/tablet.png)
+![Captura tableta](./screenshots/tablet2.png)
 
-### Vista Escritorio (≥ 992px)
+### Vista Escritorio (> 1024px)
 ![Captura escritorio](./screenshots/desktop.png)
 
 ---
@@ -29,19 +30,15 @@ El desarrollo de esta aplicación se realizó empleando las siguientes tecnolog�
 
 ## 🧭 Enfoque de Diseño Responsivo
 
-El enfoque responsivo se basa en la combinación del sistema de grid de **Bootstrap 5** y media queries personalizadas en el archivo `App.css`.  
-Esto garantiza una experiencia óptima en cualquier dispositivo, cumpliendo los siguientes objetivos:
+La aplicación utiliza una combinación del sistema de grid de **Bootstrap 5** y media queries personalizadas en el archivo `App.css` para cumplir con los requerimientos exactos del enunciado:
 
-- **Grid responsivo con Bootstrap:**  
-  - En móviles (≤767px): las tarjetas se apilan en una sola columna.
-  - En tabletas (768px-991px): las tarjetas se muestran en dos columnas.
-  - En escritorio (≥992px): las tarjetas aparecen en tres columnas.
-
-- **Menú de navegación adaptable:**  
-  El navbar utiliza las clases de Bootstrap para convertirse en menú hamburguesa en dispositivos móviles automáticamente.
+- **Breakpoints personalizados:**  
+  - **Móvil (≤600px):** Las tarjetas se apilan en una sola columna. El menú de navegación se convierte en hamburguesa.
+  - **Tableta (601px - 1024px):** Las tarjetas se distribuyen en dos columnas exactas. El menú se expande horizontalmente.
+  - **Escritorio (>1024px):** Las tarjetas se muestran en tres columnas exactas. El menú siempre está expandido.
 
 - **Media queries personalizadas:**  
-  Ajustes de tipografía, márgenes, paddings y otros detalles visuales se realizan en `App.css` para afinar la experiencia en cada breakpoint.
+  Los ajustes de tipografía, márgenes, paddings y otros detalles visuales se realizan en `App.css` para afinar la experiencia en cada breakpoint definido en el enunciado.
 
 - **Estilos modernos y coherentes:**  
   Se personalizaron colores de fondo, navbar y botones para lograr una estética moderna y consistente en todos los dispositivos.
@@ -52,8 +49,7 @@ Esto garantiza una experiencia óptima en cualquier dispositivo, cumpliendo los 
 
 Puedes ver la aplicación funcionando en el siguiente enlace:
 
-[https://tu-app-ejemplo.vercel.app/](https://web-responsiva.vercel.app/)
-
+[https://web-responsiva.vercel.app/](https://web-responsiva.vercel.app/)
 
 ---
 
@@ -70,6 +66,7 @@ Para asegurar la visualización de las imágenes, coloca las capturas de pantall
 
 - El proyecto está optimizado para cumplir con los estándares modernos de usabilidad y accesibilidad.
 - Puedes personalizar el diseño responsivo modificando tanto las utilidades de Bootstrap en los componentes, como las media queries y estilos en `App.css`.
+- Los breakpoints, la navbar y el sistema de columnas cumplen **exactamente** con las medidas y funcionamiento solicitados en el enunciado.
 
 ---
 

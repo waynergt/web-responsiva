@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Main: React.FC = () => (
-  <main className="container my-5 d-flex justify-content-center">
+  <main className="container my-8 d-flex justify-content-center">
     <section className="main-hero-card text-center p-4 p-md-5 mx-auto">
       <h1 className="display-4 mb-3 main-hero-title">Bienvenido</h1>
       <p className="lead main-hero-text">
