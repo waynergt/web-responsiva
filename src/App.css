@@ -399,7 +399,151 @@ html, body {
   }
 }
 
+/* ===============================
+   MAIN-HERO-CARD: BLOQUE PRINCIPAL DE BIENVENIDA
+   ===============================
+   Tarjeta grande y translúcida para destacar el texto principal de bienvenida.
+   - Fondo translúcido con degradado y desenfoque.
+   - Sombra elegante y borde redondeado.
+   - Animación de entrada suave.
+*/
+.main-hero-card {
+  background: linear-gradient(120deg, rgba(255,255,255,0.26) 75%, rgba(52,58,64,0.11) 100%);
+  box-shadow: 0 4px 28px 0 rgba(40,40,60,0.10);
+  border: 1.5px solid rgba(255,255,255,0.22);
+  border-radius: 30px;
+  backdrop-filter: blur(11px) saturate(130%);
+  max-width: 650px;
+  margin-top: 3em;
+  margin-bottom: 2em;
+  animation: fadeInHero 0.9s cubic-bezier(.34,1.56,.64,1) both;
+  position: relative;
+  z-index: 2;
+}
 
+/* Animación de entrada sutil */
+@keyframes fadeInHero {
+  0% { opacity: 0; transform: translateY(-30px) scale(0.97);}
+  90% { opacity: 0.95; }
+  100% { opacity: 1; transform: translateY(0) scale(1);}
+}
+
+/* Título destacado y elegante */
+.main-hero-title {
+  font-weight: 800;
+  color: #253047;
+  letter-spacing: 0.02em;
+  text-shadow: 0 3px 22px rgba(255,255,255,0.11);
+}
+
+/* Texto principal con mayor legibilidad */
+.main-hero-text {
+  font-size: 1.22rem;
+  color: #384357;
+  line-height: 1.7;
+  font-weight: 500;
+  text-shadow: 0 2px 13px rgba(255,255,255,0.09);
+}
+
+/* Palabras clave resaltadas */
+.main-hero-highlight {
+  color: #31b96a;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+}
+
+/* Responsive para el bloque principal */
+@media (max-width: 600px) {
+  .main-hero-card {
+    padding: 1.3em 0.4em;
+    max-width: 97vw;
+    margin-top: 1.2em;
+  }
+  .main-hero-title {
+    font-size: 2rem;
+  }
+  .main-hero-text {
+    font-size: 1.01rem;
+  }
+}
+
+/* ===============================
+   ANIMACIÓN PARA EL BLOQUE PRINCIPAL DE BIENVENIDA
+   ===============================
+   - El bloque principal aparece con un suave "fade in" y se desliza desde abajo.
+   - Esto mejora la percepción de dinamismo y modernidad al cargar el sitio.
+*/
+.main-hero-card {
+  /* ...otros estilos previos... */
+  animation: fadeInHero 0.9s cubic-bezier(.34,1.56,.64,1) both;
+}
+/* ===============================
+   EFECTO HOVER EN EL BLOQUE PRINCIPAL DE BIENVENIDA
+   ===============================
+   Al pasar el mouse, la tarjeta principal resalta:
+   - Sombra trasera más intensa
+   - Ligero "levantar" (desplazamiento hacia arriba)
+   Esto mejora la percepción de interactividad y modernidad.
+*/
+.main-hero-card:hover, .main-hero-card:focus-within {
+  box-shadow: 0 12px 50px 0 rgba(52, 58, 64, 0.21), 0 4px 18px 0 rgba(40,40,60,0.13);
+  transform: translateY(-7px) scale(1.025);
+  border-color: rgba(52, 58, 64, 0.27);
+  transition: box-shadow 0.23s cubic-bezier(.52,1.6,.53,0.82), 
+              transform 0.22s cubic-bezier(.52,1.6,.53,0.82), 
+              border 0.22s;
+}
+
+/* Keyframes para la animación principal */
+@keyframes fadeInHero {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.97);
+  }
+  60% {
+    opacity: 0.94;
+    transform: translateY(-12px) scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ===============================
+   ANIMACIÓN DE SUBRAYADO EN EL TÍTULO
+   ===============================
+   - El subrayado se expande de izquierda a derecha.
+*/
+.main-hero-title {
+  position: relative;
+  overflow: hidden;
+}
+
+.main-hero-title::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #31b96a 60%, #576858 100%);
+  border-radius: 4px;
+  transition: width 0.3s cubic-bezier(.57,1.9,.35,0.76), left 0.3s;
+  animation: underlineGrow 0.7s 0.5s cubic-bezier(.57,1.9,.35,0.76) forwards;
+}
+
+@keyframes underlineGrow {
+  from {
+    width: 0;
+    left: 50%;
+  }
+  to {
+    width: 60%;
+    left: 20%;
+  }
+}
 
 
 /* ===============================
