@@ -1,14 +1,13 @@
 /* ===============================
    ESTILOS GENERALES Y AJUSTES BASE
-   ===============================
-   Estos estilos se aplican a todos los dispositivos para establecer la base visual y de layout.
-*/
+   =============================== */
 body {
-  background: #e9ecef;
+  background: #b7bbbe;
 }
 
-.navbar {
-  background-color: #343a40 !important;
+html, body {
+  width: 100%;
+  overflow-x: hidden;
 }
 
 #root {
@@ -21,10 +20,7 @@ body {
 
 /* ===============================
    BOTÓN PRINCIPAL PERSONALIZADO
-   ===============================
-   Se ajustan los colores del botón principal para que combine con la paleta de la app y mejore
-   el contraste y la visibilidad en todos los dispositivos.
-*/
+   =============================== */
 .btn-primary {
   background-color: #343a40 !important;
   border-color: #576858 !important;
@@ -35,133 +31,121 @@ body {
 }
 
 /* ===============================
-   AJUSTES GENERALES PARA ELIMINAR SCROLL HORIZONTAL
-   ===============================
-   Se asegura que no haya scroll horizontal inesperado en ningún dispositivo.
-*/
-html, body {
-  width: 100%;
-  overflow-x: hidden;
+   AJUSTES DE NAVBAR
+   =============================== */
+.navbar,
+.elegant-navbar {
+  background: linear-gradient(120deg, rgba(46,53,70,0.74) 80%, rgba(49,185,106,0.13) 100%) !important;
+  backdrop-filter: blur(13px) saturate(120%);
+  border-bottom: 2.5px solid rgba(87,104,88,0.13);
+  border-radius: 0 0 22px 22px;
+  box-shadow: 0 2px 22px 0 rgba(40,40,60,0.11);
+  transition: box-shadow 0.22s cubic-bezier(.53,1.8,.23,0.91), border 0.22s;
 }
-
-/* ===============================
-   CUSTOM-CARD: TARJETAS CON FONDO TRANSLÚCIDO
-   ===============================
-   Se usa un fondo translúcido y desenfoque para mejorar la legibilidad del contenido de las tarjetas,
-   logrando un efecto visual moderno y limpio en cualquier dispositivo.
-*/
-.custom-card {
-  background: rgba(255,255,255,0.13);
-  box-shadow: none;
-  backdrop-filter: blur(6px);
+.elegant-navbar:hover, .elegant-navbar:focus-within {
+  box-shadow: 0 8px 34px 0 rgba(52, 58, 64, 0.21), 0 1.5px 10px 0 rgba(40,40,60,0.09);
+  border-bottom-color: rgba(87,104,88,0.22);
+}
+.elegant-navbar .navbar-brand {
+  font-weight: 800;
+  font-size: 1.32rem;
+  color: #31b96a !important;
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 10px rgba(255,255,255,0.10);
+  transition: color 0.18s;
+}
+.elegant-navbar .nav-link {
+  color: #e9ecef !important;
+  font-weight: 500;
+  padding: 0.5em 1.1em;
+  border-radius: 9px;
+  position: relative;
+  overflow: hidden;
+  font-size: 1.09rem;
+  transition: background 0.15s, color 0.15s;
+}
+.elegant-navbar .nav-link::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 40%;
+  bottom: 6px;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #31b96a 60%, #576858 100%);
+  border-radius: 4px;
+  transition: width 0.28s cubic-bezier(.57,1.9,.35,0.76), left 0.28s;
+  z-index: 1;
+}
+.elegant-navbar .nav-link:hover::after,
+.elegant-navbar .nav-link:focus::after {
+  width: 60%;
+  left: 20%;
+}
+.elegant-navbar .nav-link.active,
+.elegant-navbar .nav-link:active {
+  color: #31b96a !important;
+  font-weight: 700;
+  background: rgba(49,185,106,0.07);
+}
+@media (min-width: 768px) {
+  .elegant-navbar .nav-link {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+  }
+}
+.elegant-navbar .navbar-toggler {
+  background: rgba(46,53,70,0.21);
+  border-radius: 8px;
   border: none;
-  padding: 2em;
+  box-shadow: 0 2px 10px 0 rgba(87,104,88,0.10);
+  transition: box-shadow 0.18s, background 0.15s;
+  position: relative;
+  z-index: 1031;
 }
-
-/* ===============================
-   CARD-COL: SISTEMA DE COLUMNAS PERSONALIZADO
-   ===============================
-   Esta clase reemplaza el grid predeterminado de Bootstrap para lograr EXACTAMENTE
-   la cantidad de columnas requeridas en el enunciado, independientemente de los breakpoints de Bootstrap.
-   - 1 columna en móviles (≤600px)
-   - 2 columnas en tabletas (601px - 1024px)
-   - 3 columnas en escritorio (>1024px)
-*/
-.card-col {
-  width: 100%;
-  max-width: 100%;
-  flex: 0 0 100%;
+.elegant-navbar .navbar-toggler:hover, .elegant-navbar .navbar-toggler:focus {
+  box-shadow: 0 4px 24px 0 rgba(49,185,106,0.15), 0 1.5px 10px 0 rgba(87,104,88,0.12);
+  background: rgba(46,53,70,0.32);
 }
-
-/* ===============================
-   MEDIA QUERY: MÓVIL (≤600px)
-   ===============================
-   - Tarjetas apiladas en una sola columna, ocupando todo el ancho.
-   - Menú hamburguesa activado gracias a las reglas personalizadas.
-   - Tamaños de fuente y paddings reducidos para mejor adaptación a pantallas pequeñas.
-*/
+.elegant-navbar .navbar-toggler-icon {
+  background-image: none;
+  width: 28px;
+  height: 28px;
+  position: relative;
+  display: inline-block;
+}
+.elegant-navbar .navbar-toggler-icon::before,
+.elegant-navbar .navbar-toggler-icon::after,
+.elegant-navbar .navbar-toggler-icon span {
+  content: "";
+  position: absolute;
+  left: 4px;
+  width: 20px;
+  height: 3px;
+  background: linear-gradient(90deg, #31b96a 60%, #576858 100%);
+  border-radius: 3px;
+  transition: 0.3s;
+}
+.elegant-navbar .navbar-toggler-icon::before { top: 7px; }
+.elegant-navbar .navbar-toggler-icon::after { top: 18px; }
+.elegant-navbar .navbar-toggler-icon span { top: 13px; }
 @media (max-width: 600px) {
-  #root {
-    padding: 0.5rem;
+  .elegant-navbar .navbar-collapse {
+    background: linear-gradient(120deg, rgba(46,53,70,0.90) 90%, rgba(87,104,88,0.14) 100%);
+    border-radius: 0 0 18px 18px;
+    box-shadow: 0 4px 24px 0 rgba(52, 58, 64, 0.16);
+    padding-bottom: 0.8em;
+    margin-top: 0.5em;
   }
-  h1, h2, h3 {
-    font-size: 1.3rem;
-  }
-  .custom-card {
-    padding: 1rem;
-    font-size: 0.95rem;
-    margin-bottom: 1rem;
-  }
-  .navbar-brand {
-    font-size: 1.1rem;
-  }
-}
-
-/* ===============================
-   MEDIA QUERY: TABLET (601px - 1024px)
-   ===============================
-   - Las tarjetas se distribuyen exactamente en dos columnas (50% cada una).
-   - Ajustes de tipografía y paddings intermedios para mejor legibilidad y usabilidad en tablets.
-   - Navbar expandido horizontalmente.
-*/
-@media (min-width: 601px) and (max-width: 1024px) {
-  .card-col {
-    width: 50%;
-    max-width: 50%;
-    flex: 0 0 50%;
-  }
-  #root {
-    padding: 1.5rem;
-  }
-  h1, h2, h3 {
-    font-size: 1.7rem;
-  }
-  .custom-card {
-    padding: 1.5rem;
-    font-size: 1.05rem;
-    margin-bottom: 1.5rem;
-  }
-  .navbar-brand {
-    font-size: 1.25rem;
-  }
-}
-
-/* ===============================
-   MEDIA QUERY: ESCRITORIO (>1024px)
-   ===============================
-   - Las tarjetas se distribuyen en tres columnas (33.33% cada una).
-   - Espaciados y fuentes más grandes para mejor presentación en pantallas grandes.
-   - Navbar siempre expandido.
-*/
-@media (min-width: 1025px) {
-  .card-col {
-    width: 33.3333%;
-    max-width: 33.3333%;
-    flex: 0 0 33.3333%;
-  }
-  #root {
-    padding: 2.5rem;
-  }
-  h1, h2, h3 {
-    font-size: 2rem;
-  }
-  .custom-card {
-    padding: 2.5rem;
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-  }
-  .navbar-brand {
-    font-size: 1.5rem;
+  .elegant-navbar .nav-link {
+    font-size: 1.13rem;
+    margin-bottom: 0.5em;
   }
 }
 
 /* ===============================
    MENU HAMBURGUESA PERSONALIZADO (≤600px)
-   ===============================
-   Estas reglas fuerzan la aparición del menú hamburguesa exactamente en ≤600px,
-   asegurando que el menú expandido sólo aparezca a partir de 601px, cumpliendo con el enunciado.
-   Esto mejora la usabilidad en móviles y el acceso a la navegación sin ocupar espacio extra.
-*/
+   =============================== */
 .custom-navbar-breakpoint .navbar-collapse {
   display: none !important;
 }
@@ -178,16 +162,54 @@ html, body {
 }
 
 /* ===============================
-   CUSTOM-CARD: TARJETA ELEGANTE Y TRANSLÚCIDA
-   ===============================
-   Este bloque define el estilo base de las tarjetas para que luzcan modernas y atractivas en cualquier dispositivo.
-   - Fondo translúcido con degradado para dar profundidad y modernidad.
-   - Sombra sutil para que la tarjeta "flote" sobre el fondo.
-   - Desenfoque (backdrop-filter) que mejora la legibilidad del contenido sin perder el fondo.
-   - Bordes redondeados para un look suave y profesional.
-   - Espaciado interno generoso para balance visual.
-   - Transiciones suaves para animaciones de hover.
-*/
+   LOGO ANIMADO Y ELEGANTE
+   =============================== */
+.logo {
+  width: 300px;
+  height: auto;
+  filter: drop-shadow(0 2px 12px rgba(49,185,106,0.09));
+  transition: filter 0.25s, transform 0.22s;
+  cursor: pointer;
+}
+.logo:hover, .logo:focus {
+  filter: drop-shadow(0 4px 28px rgba(49,185,106,0.23)) drop-shadow(0 1.5px 14px rgba(87,104,88,0.08));
+  transform: scale(1.09) rotate(-3deg);
+  animation: logo-bounce 0.44s cubic-bezier(.56,1.7,.33,0.95);
+}
+@keyframes logo-bounce {
+  0% { transform: scale(1) rotate(0deg);}
+  30% { transform: scale(1.12) rotate(-6deg);}
+  58% { transform: scale(0.97) rotate(2deg);}
+  80% { transform: scale(1.05) rotate(-3deg);}
+  100% { transform: scale(1.09) rotate(-3deg);}
+}
+
+/* ===============================
+   SISTEMA DE COLUMNAS PERSONALIZADO
+   =============================== */
+.card-col {
+  width: 100%;
+  max-width: 100%;
+  flex: 0 0 100%;
+}
+@media (min-width: 601px) and (max-width: 1024px) {
+  .card-col {
+    width: 50%;
+    max-width: 50%;
+    flex: 0 0 50%;
+  }
+}
+@media (min-width: 1025px) {
+  .card-col {
+    width: 33.3333%;
+    max-width: 33.3333%;
+    flex: 0 0 33.3333%;
+  }
+}
+
+/* ===============================
+   CUSTOM-CARD: TARJETA TRANSLÚCIDA PRINCIPAL
+   =============================== */
 .custom-card {
   background: linear-gradient(135deg, rgba(255,255,255,0.18) 70%, rgba(52,58,64,0.09));
   box-shadow: 0 4px 20px 0 rgba(40,40,60,0.08);
@@ -199,28 +221,11 @@ html, body {
   position: relative;
   overflow: hidden;
 }
-
-/* ===============================
-   EFECTO HOVER EN TARJETA
-   ===============================
-   Cuando el usuario pasa el mouse o enfoca la tarjeta:
-   - Sombra se intensifica y la tarjeta se "eleva" ligeramente, indicando interactividad.
-   - El borde se oscurece suavemente.
-   Esto mejora la experiencia visual y la usabilidad.
-*/
 .custom-card:hover, .custom-card:focus-within {
   box-shadow: 0 8px 32px 0 rgba(52, 58, 64, 0.22), 0 2px 10px 0 rgba(40,40,60,0.10);
   transform: translateY(-8px) scale(1.025);
   border-color: rgba(52, 58, 64, 0.25);
 }
-
-/* ===============================
-   ESTILO DEL TÍTULO DE LA TARJETA
-   ===============================
-   - Fuente más grande y negrita para jerarquía visual.
-   - Color oscuro para mayor contraste y legibilidad sobre el fondo translúcido.
-   - Sombra de texto sutil para resaltar sobre fondos claros.
-*/
 .custom-card .card-title {
   font-size: 1.35rem;
   font-weight: 700;
@@ -229,27 +234,12 @@ html, body {
   margin-bottom: 0.6em;
   text-shadow: 0 2px 12px rgba(255,255,255,0.10);
 }
-
-/* ===============================
-   ESTILO DEL TEXTO DE LA TARJETA
-   ===============================
-   - Color gris oscuro para buena legibilidad.
-   - Tamaño y espaciado pensados para leer cómodamente.
-*/
 .custom-card .card-text {
   color: #444d5c;
   font-size: 1.07rem;
   margin-bottom: 1.45em;
   line-height: 1.55;
 }
-
-/* ===============================
-   BOTÓN DENTRO DE TARJETA
-   ===============================
-   - Fondo con degradado para hacerlo más atractivo visualmente.
-   - Sombra sutil y borde redondeado para mantener coherencia con la tarjeta.
-   - Transición en hover para feedback visual al usuario.
-*/
 .custom-card .btn-primary {
   background: linear-gradient(90deg, #343a40 60%, #576858 100%);
   border: none;
@@ -263,13 +253,6 @@ html, body {
   background: linear-gradient(90deg, #23272b 60%, #576858 100%);
   transform: scale(1.06);
 }
-
-/* ===============================
-   DETALLE DECORATIVO EN TARJETA
-   ===============================
-   - Un círculo difuso en la esquina superior derecha.
-   - Agrega un toque moderno y elegante, sin distraer del contenido principal.
-*/
 .custom-card::after {
   content: '';
   position: absolute;
@@ -283,10 +266,8 @@ html, body {
 }
 
 /* ===============================
-   COUNTER-CARD: TARJETA TRANSLÚCIDA PARA EL CONTADOR
-   ===============================
-   Tarjeta moderna, translúcida y con sombra sutil para mostrar el contador central.
-*/
+   CARD COUNTER Y SU ANIMACIÓN
+   =============================== */
 .counter-card {
   max-width: 320px;
   margin-top: 2em;
@@ -307,14 +288,6 @@ html, body {
   transform: translateY(-4px) scale(1.025);
   border-color: rgba(52, 58, 64, 0.22);
 }
-
-/* ===============================
-   COUNTER-VALUE: NÚMERO CON ANIMACIÓN Y COLOR DINÁMICO
-   ===============================
-   - Tamaño grande, sombra y letra clara para destacar el número.
-   - Cambia de color según su valor: positivo (verde), negativo (rojo), o neutro (azul/gris).
-   - Clase 'bounce' activa la animación de rebote al cambiar el número.
-*/
 .counter-value {
   font-size: 2.7rem;
   font-weight: bold;
@@ -324,20 +297,8 @@ html, body {
   letter-spacing: 0.05em;
   transition: color 0.3s;
 }
-
-/* Verde para valores positivos */
-.counter-value.positive {
-  color: #31b96a;
-}
-/* Rojo para negativos */
-.counter-value.negative {
-  color: #d13e3e;
-}
-
-/* === Animación de rebote ("bounce") ===
-   - Al cambiar el número, el elemento salta hacia arriba y vuelve.
-   - Se activa agregando la clase "bounce" y se elimina al terminar la animación (onAnimationEnd en React).
-*/
+.counter-value.positive { color: #31b96a; }
+.counter-value.negative { color: #d13e3e; }
 @keyframes bounce {
   10% { transform: scale(1.15) translateY(-12px);}
   35% { transform: scale(0.97) translateY(3px);}
@@ -348,13 +309,6 @@ html, body {
 .counter-value.bounce {
   animation: bounce 0.45s cubic-bezier(.52,1.6,.53,0.82);
 }
-
-/* ===============================
-   BOTONES DEL CONTADOR
-   ===============================
-   - 'btn-counter' para sumar/restar: elegante, degradado, animación al presionar.
-   - 'btn-reset' para reiniciar: más claro, para indicar acción secundaria.
-*/
 .btn-counter {
   background: linear-gradient(90deg, #343a40 60%, #576858 100%);
   color: #fff;
@@ -386,27 +340,8 @@ html, body {
 }
 
 /* ===============================
-   RESPONSIVE PARA EL CONTADOR
-   ===============================
-   - Reduce paddings y tamaño del número en móviles.
-*/
-@media (max-width: 600px) {
-  .counter-card {
-    padding: 1.2em 0.7em;
-  }
-  .counter-value {
-    font-size: 2rem;
-  }
-}
-
-/* ===============================
    MAIN-HERO-CARD: BLOQUE PRINCIPAL DE BIENVENIDA
-   ===============================
-   Tarjeta grande y translúcida para destacar el texto principal de bienvenida.
-   - Fondo translúcido con degradado y desenfoque.
-   - Sombra elegante y borde redondeado.
-   - Animación de entrada suave.
-*/
+   =============================== */
 .main-hero-card {
   background: linear-gradient(120deg, rgba(255,255,255,0.26) 75%, rgba(52,58,64,0.11) 100%);
   box-shadow: 0 4px 28px 0 rgba(40,40,60,0.10);
@@ -419,107 +354,29 @@ html, body {
   animation: fadeInHero 0.9s cubic-bezier(.34,1.56,.64,1) both;
   position: relative;
   z-index: 2;
+  transition: box-shadow 0.23s cubic-bezier(.52,1.6,.53,0.82), 
+              transform 0.22s cubic-bezier(.52,1.6,.53,0.82), 
+              border 0.22s;
 }
-
-/* Animación de entrada sutil */
 @keyframes fadeInHero {
-  0% { opacity: 0; transform: translateY(-30px) scale(0.97);}
-  90% { opacity: 0.95; }
+  0%   { opacity: 0; transform: translateY(40px) scale(0.97);}
+  60%  { opacity: 0.94; transform: translateY(-12px) scale(1.03);}
   100% { opacity: 1; transform: translateY(0) scale(1);}
 }
-
-/* Título destacado y elegante */
+.main-hero-card:hover, .main-hero-card:focus-within {
+  box-shadow: 0 12px 50px 0 rgba(52, 58, 64, 0.21), 0 4px 18px 0 rgba(40,40,60,0.13);
+  transform: translateY(-7px) scale(1.025);
+  border-color: rgba(52, 58, 64, 0.27);
+}
 .main-hero-title {
   font-weight: 800;
   color: #253047;
   letter-spacing: 0.02em;
   text-shadow: 0 3px 22px rgba(255,255,255,0.11);
-}
-
-/* Texto principal con mayor legibilidad */
-.main-hero-text {
-  font-size: 1.22rem;
-  color: #384357;
-  line-height: 1.7;
-  font-weight: 500;
-  text-shadow: 0 2px 13px rgba(255,255,255,0.09);
-}
-
-/* Palabras clave resaltadas */
-.main-hero-highlight {
-  color: #31b96a;
-  font-weight: bold;
-  letter-spacing: 0.04em;
-}
-
-/* Responsive para el bloque principal */
-@media (max-width: 600px) {
-  .main-hero-card {
-    padding: 1.3em 0.4em;
-    max-width: 97vw;
-    margin-top: 1.2em;
-  }
-  .main-hero-title {
-    font-size: 2rem;
-  }
-  .main-hero-text {
-    font-size: 1.01rem;
-  }
-}
-
-/* ===============================
-   ANIMACIÓN PARA EL BLOQUE PRINCIPAL DE BIENVENIDA
-   ===============================
-   - El bloque principal aparece con un suave "fade in" y se desliza desde abajo.
-   - Esto mejora la percepción de dinamismo y modernidad al cargar el sitio.
-*/
-.main-hero-card {
-  /* ...otros estilos previos... */
-  animation: fadeInHero 0.9s cubic-bezier(.34,1.56,.64,1) both;
-}
-/* ===============================
-   EFECTO HOVER EN EL BLOQUE PRINCIPAL DE BIENVENIDA
-   ===============================
-   Al pasar el mouse, la tarjeta principal resalta:
-   - Sombra trasera más intensa
-   - Ligero "levantar" (desplazamiento hacia arriba)
-   Esto mejora la percepción de interactividad y modernidad.
-*/
-.main-hero-card:hover, .main-hero-card:focus-within {
-  box-shadow: 0 12px 50px 0 rgba(52, 58, 64, 0.21), 0 4px 18px 0 rgba(40,40,60,0.13);
-  transform: translateY(-7px) scale(1.025);
-  border-color: rgba(52, 58, 64, 0.27);
-  transition: box-shadow 0.23s cubic-bezier(.52,1.6,.53,0.82), 
-              transform 0.22s cubic-bezier(.52,1.6,.53,0.82), 
-              border 0.22s;
-}
-
-/* Keyframes para la animación principal */
-@keyframes fadeInHero {
-  0% {
-    opacity: 0;
-    transform: translateY(40px) scale(0.97);
-  }
-  60% {
-    opacity: 0.94;
-    transform: translateY(-12px) scale(1.03);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* ===============================
-   ANIMACIÓN DE SUBRAYADO EN EL TÍTULO
-   ===============================
-   - El subrayado se expande de izquierda a derecha.
-*/
-.main-hero-title {
+  font-size: 2.4rem;
   position: relative;
   overflow: hidden;
 }
-
 .main-hero-title::after {
   content: "";
   display: block;
@@ -533,18 +390,108 @@ html, body {
   transition: width 0.3s cubic-bezier(.57,1.9,.35,0.76), left 0.3s;
   animation: underlineGrow 0.7s 0.5s cubic-bezier(.57,1.9,.35,0.76) forwards;
 }
-
 @keyframes underlineGrow {
-  from {
-    width: 0;
-    left: 50%;
-  }
-  to {
-    width: 60%;
-    left: 20%;
-  }
+  from { width: 0; left: 50%; }
+  to   { width: 60%; left: 20%; }
+}
+.main-hero-text {
+  font-size: 1.22rem;
+  color: #384357;
+  line-height: 1.7;
+  font-weight: 500;
+  text-shadow: 0 2px 13px rgba(255,255,255,0.09);
+}
+.main-hero-highlight {
+  color: #31b96a;
+  font-weight: bold;
+  letter-spacing: 0.04em;
 }
 
+/* ===============================
+   FOOTER-GLASS: PIE DE PÁGINA ELEGANTE Y TRANSLÚCIDO
+   =============================== */
+.footer-glass {
+  background: linear-gradient(120deg, rgba(46,53,70,0.74) 80%, rgba(49,185,106,0.13) 100%);
+  backdrop-filter: blur(13px) saturate(120%);
+  border-top: 2.5px solid rgba(87,104,88,0.13);
+  border-radius: 22px 22px 0 0;
+  box-shadow: 0 -2px 22px 0 rgba(40,40,60,0.11);
+  margin-bottom: 0;
+  padding-top: 1em;
+  padding-bottom: 0.5em;
+  transition: box-shadow 0.22s cubic-bezier(.53,1.8,.23,0.91), 
+              border 0.21s;
+  position: relative;
+  z-index: 2;
+}
+.footer-text {
+  font-size: 1.12rem;
+  color: #e9ecef;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.footer-social-links {
+  gap: 2.1em !important;
+}
+.footer-social-link {
+  font-size: 2.1rem;
+  color: #e9ecef;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.18s, transform 0.22s, box-shadow 0.19s;
+  border-radius: 50%;
+  width: 2.7em;
+  height: 2.7em;
+  position: relative;
+}
+.footer-social-link:hover,
+.footer-social-link:focus {
+  color: #31b96a;
+  background: rgba(49,185,106,0.13);
+  box-shadow: 0 6px 22px 0 rgba(49,185,106,0.17);
+  transform: translateY(-6px) scale(1.14);
+  outline: none;
+}
+.footer-social-link i {
+  vertical-align: middle;
+}
+.footer-copy {
+  color: #95b4ad !important;
+  letter-spacing: 0.03em;
+  font-size: 0.98rem;
+  opacity: 0.85;
+}
+
+/* ===============================
+   MEDIA QUERIES: RESPONSIVE AJUSTES
+   =============================== */
+@media (max-width: 600px) {
+  #root            { padding: 0.5rem; }
+  h1, h2, h3       { font-size: 1.3rem; }
+  .custom-card     { padding: 1rem; font-size: 0.95rem; margin-bottom: 1rem; }
+  .navbar-brand    { font-size: 1.1rem; }
+  .counter-card    { padding: 1.2em 0.7em; }
+  .counter-value   { font-size: 2rem; }
+  .main-hero-card  { padding: 1.3em 0.4em; max-width: 97vw; margin-top: 1.2em; }
+  .main-hero-title { font-size: 2rem; }
+  .main-hero-text  { font-size: 1.01rem; }
+  .footer-glass    { padding-top: 0.6em; padding-bottom: 0.2em; border-radius: 14px 14px 0 0; }
+  .footer-social-link { font-size: 1.48rem; width: 2.1em; height: 2.1em; }
+  .footer-text     { font-size: 1.01rem; }
+}
+@media (min-width: 601px) and (max-width: 1024px) {
+  #root            { padding: 1.5rem; }
+  h1, h2, h3       { font-size: 1.7rem; }
+  .custom-card     { padding: 1.5rem; font-size: 1.05rem; margin-bottom: 1.5rem; }
+  .navbar-brand    { font-size: 1.25rem; }
+}
+@media (min-width: 1025px) {
+  #root            { padding: 2.5rem; }
+  h1, h2, h3       { font-size: 2rem; }
+  .custom-card     { padding: 2.5rem; font-size: 1.1rem; margin-bottom: 2rem; }
+  .navbar-brand    { font-size: 1.5rem; }
+}
 
 /* ===============================
    EXPLICACIÓN GENERAL

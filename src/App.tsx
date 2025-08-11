@@ -49,7 +49,7 @@ function App() {
         <div className="d-flex justify-content-center align-items-center gap-4 my-3 flex-wrap">
           <img src={logo} className="logo" alt="Logo UMG" />
         </div>
-        <h2>UMG CHIQUIMULILLA</h2>
+        <h2 className="main-hero-title">UMG CHIQUIMULILLA</h2>
 
         {/* Bloque contador elegante con animación */}
         <div className="counter-card mx-auto my-3">

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header: React.FC = () => (
   <header>
-    <nav className="navbar navbar-expand custom-navbar-breakpoint navbar-dark bg-dark">
+    <nav className="navbar navbar-expand elegant-navbar custom-navbar-breakpoint elegant-navbar">
       <div className="container">
         <a className="navbar-brand" href="#">WaynerGT</a>
         <button
