@@ -1,9 +1,14 @@
+/* ===============================
+   ESTILOS GENERALES Y AJUSTES BASE
+   ===============================
+   Estos estilos se aplican a todos los dispositivos para establecer la base visual y de layout.
+*/
 body {
-  background: #e9ecef; 
+  background: #e9ecef;
 }
 
 .navbar {
-  background-color: #343a40 !important; 
+  background-color: #343a40 !important;
 }
 
 #root {
@@ -11,60 +16,171 @@ body {
   width: 100%;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
   box-sizing: border-box;
 }
+
+/* ===============================
+   BOTÓN PRINCIPAL PERSONALIZADO
+   ===============================
+   Se ajustan los colores del botón principal para que combine con la paleta de la app y mejore
+   el contraste y la visibilidad en todos los dispositivos.
+*/
 .btn-primary {
-  background-color: #343a40 !important; 
+  background-color: #343a40 !important;
   border-color: #576858 !important;
 }
 .btn-primary:hover, .btn-primary:focus {
-  background-color: #343a40 !important;
-  border-color: #576858  !important;
+  background-color: #23272b !important;
+  border-color: #576858 !important;
 }
-.logo {
-  height: 25em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
+
+/* ===============================
+   AJUSTES GENERALES PARA ELIMINAR SCROLL HORIZONTAL
+   ===============================
+   Se asegura que no haya scroll horizontal inesperado en ningún dispositivo.
+*/
 html, body {
   width: 100%;
   overflow-x: hidden;
 }
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-@media (max-width: 767px) {
-  #root {
-    max-width: 100vw;
-    padding: 1rem;
-  }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-.card {
+/* ===============================
+   CUSTOM-CARD: TARJETAS CON FONDO TRANSLÚCIDO
+   ===============================
+   Se usa un fondo translúcido y desenfoque para mejorar la legibilidad del contenido de las tarjetas,
+   logrando un efecto visual moderno y limpio en cualquier dispositivo.
+*/
+.custom-card {
   background: rgba(255,255,255,0.13);
   box-shadow: none;
   backdrop-filter: blur(6px);
+  border: none;
   padding: 2em;
 }
 
-.read-the-docs {
-  color: #343a40;
+/* ===============================
+   CARD-COL: SISTEMA DE COLUMNAS PERSONALIZADO
+   ===============================
+   Esta clase reemplaza el grid predeterminado de Bootstrap para lograr EXACTAMENTE
+   la cantidad de columnas requeridas en el enunciado, independientemente de los breakpoints de Bootstrap.
+   - 1 columna en móviles (≤600px)
+   - 2 columnas en tabletas (601px - 1024px)
+   - 3 columnas en escritorio (>1024px)
+*/
+.card-col {
+  width: 100%;
+  max-width: 100%;
+  flex: 0 0 100%;
 }
+
+/* ===============================
+   MEDIA QUERY: MÓVIL (≤600px)
+   ===============================
+   - Tarjetas apiladas en una sola columna, ocupando todo el ancho.
+   - Menú hamburguesa activado gracias a las reglas personalizadas.
+   - Tamaños de fuente y paddings reducidos para mejor adaptación a pantallas pequeñas.
+*/
+@media (max-width: 600px) {
+  #root {
+    padding: 0.5rem;
+  }
+  h1, h2, h3 {
+    font-size: 1.3rem;
+  }
+  .custom-card {
+    padding: 1rem;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  .navbar-brand {
+    font-size: 1.1rem;
+  }
+}
+
+/* ===============================
+   MEDIA QUERY: TABLET (601px - 1024px)
+   ===============================
+   - Las tarjetas se distribuyen exactamente en dos columnas (50% cada una).
+   - Ajustes de tipografía y paddings intermedios para mejor legibilidad y usabilidad en tablets.
+   - Navbar expandido horizontalmente.
+*/
+@media (min-width: 601px) and (max-width: 1024px) {
+  .card-col {
+    width: 50%;
+    max-width: 50%;
+    flex: 0 0 50%;
+  }
+  #root {
+    padding: 1.5rem;
+  }
+  h1, h2, h3 {
+    font-size: 1.7rem;
+  }
+  .custom-card {
+    padding: 1.5rem;
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+  }
+  .navbar-brand {
+    font-size: 1.25rem;
+  }
+}
+
+/* ===============================
+   MEDIA QUERY: ESCRITORIO (>1024px)
+   ===============================
+   - Las tarjetas se distribuyen en tres columnas (33.33% cada una).
+   - Espaciados y fuentes más grandes para mejor presentación en pantallas grandes.
+   - Navbar siempre expandido.
+*/
+@media (min-width: 1025px) {
+  .card-col {
+    width: 33.3333%;
+    max-width: 33.3333%;
+    flex: 0 0 33.3333%;
+  }
+  #root {
+    padding: 2.5rem;
+  }
+  h1, h2, h3 {
+    font-size: 2rem;
+  }
+  .custom-card {
+    padding: 2.5rem;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+}
+
+/* ===============================
+   MENU HAMBURGUESA PERSONALIZADO (≤600px)
+   ===============================
+   Estas reglas fuerzan la aparición del menú hamburguesa exactamente en ≤600px,
+   asegurando que el menú expandido sólo aparezca a partir de 601px, cumpliendo con el enunciado.
+   Esto mejora la usabilidad en móviles y el acceso a la navegación sin ocupar espacio extra.
+*/
+.custom-navbar-breakpoint .navbar-collapse {
+  display: none !important;
+}
+.custom-navbar-breakpoint .navbar-toggler {
+  display: block;
+}
+@media (min-width: 601px) {
+  .custom-navbar-breakpoint .navbar-collapse {
+    display: flex !important;
+  }
+  .custom-navbar-breakpoint .navbar-toggler {
+    display: none;
+  }
+}
+
+/* ===============================
+   EXPLICACIÓN GENERAL
+   ===============================
+   Cada media query y clase personalizada está diseñada para adaptar el layout y la navegación
+   a la pantalla del usuario, mejorando la experiencia y facilidad de uso en móvil, tablet y escritorio.
+   Esto asegura que el contenido sea siempre legible, accesible y atractivo sin importar el dispositivo.
+*/
