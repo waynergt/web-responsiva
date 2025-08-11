@@ -178,6 +178,110 @@ html, body {
 }
 
 /* ===============================
+   CUSTOM-CARD: TARJETA ELEGANTE Y TRANSLÚCIDA
+   ===============================
+   Este bloque define el estilo base de las tarjetas para que luzcan modernas y atractivas en cualquier dispositivo.
+   - Fondo translúcido con degradado para dar profundidad y modernidad.
+   - Sombra sutil para que la tarjeta "flote" sobre el fondo.
+   - Desenfoque (backdrop-filter) que mejora la legibilidad del contenido sin perder el fondo.
+   - Bordes redondeados para un look suave y profesional.
+   - Espaciado interno generoso para balance visual.
+   - Transiciones suaves para animaciones de hover.
+*/
+.custom-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.18) 70%, rgba(52,58,64,0.09));
+  box-shadow: 0 4px 20px 0 rgba(40,40,60,0.08);
+  backdrop-filter: blur(9px) saturate(120%);
+  border: 1px solid rgba(255,255,255,0.28);
+  border-radius: 22px;
+  padding: 2.2em 2em 2em 2em;
+  transition: box-shadow 0.28s cubic-bezier(.4,2,.3,1), transform 0.19s cubic-bezier(.4,2,.3,1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ===============================
+   EFECTO HOVER EN TARJETA
+   ===============================
+   Cuando el usuario pasa el mouse o enfoca la tarjeta:
+   - Sombra se intensifica y la tarjeta se "eleva" ligeramente, indicando interactividad.
+   - El borde se oscurece suavemente.
+   Esto mejora la experiencia visual y la usabilidad.
+*/
+.custom-card:hover, .custom-card:focus-within {
+  box-shadow: 0 8px 32px 0 rgba(52, 58, 64, 0.22), 0 2px 10px 0 rgba(40,40,60,0.10);
+  transform: translateY(-8px) scale(1.025);
+  border-color: rgba(52, 58, 64, 0.25);
+}
+
+/* ===============================
+   ESTILO DEL TÍTULO DE LA TARJETA
+   ===============================
+   - Fuente más grande y negrita para jerarquía visual.
+   - Color oscuro para mayor contraste y legibilidad sobre el fondo translúcido.
+   - Sombra de texto sutil para resaltar sobre fondos claros.
+*/
+.custom-card .card-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #222d3d;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.6em;
+  text-shadow: 0 2px 12px rgba(255,255,255,0.10);
+}
+
+/* ===============================
+   ESTILO DEL TEXTO DE LA TARJETA
+   ===============================
+   - Color gris oscuro para buena legibilidad.
+   - Tamaño y espaciado pensados para leer cómodamente.
+*/
+.custom-card .card-text {
+  color: #444d5c;
+  font-size: 1.07rem;
+  margin-bottom: 1.45em;
+  line-height: 1.55;
+}
+
+/* ===============================
+   BOTÓN DENTRO DE TARJETA
+   ===============================
+   - Fondo con degradado para hacerlo más atractivo visualmente.
+   - Sombra sutil y borde redondeado para mantener coherencia con la tarjeta.
+   - Transición en hover para feedback visual al usuario.
+*/
+.custom-card .btn-primary {
+  background: linear-gradient(90deg, #343a40 60%, #576858 100%);
+  border: none;
+  box-shadow: 0 2px 10px 0 rgba(87,104,88,0.06);
+  padding: 0.6em 1.6em;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: background 0.19s, transform 0.18s;
+}
+.custom-card .btn-primary:hover, .custom-card .btn-primary:focus {
+  background: linear-gradient(90deg, #23272b 60%, #576858 100%);
+  transform: scale(1.06);
+}
+
+/* ===============================
+   DETALLE DECORATIVO EN TARJETA
+   ===============================
+   - Un círculo difuso en la esquina superior derecha.
+   - Agrega un toque moderno y elegante, sin distraer del contenido principal.
+*/
+.custom-card::after {
+  content: '';
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  width: 65px;
+  height: 65px;
+  background: radial-gradient(circle, rgba(87,104,88,0.11) 0%, rgba(255,255,255,0) 80%);
+  pointer-events: none;
+  z-index: 1;
+}
+/* ===============================
    EXPLICACIÓN GENERAL
    ===============================
    Cada media query y clase personalizada está diseñada para adaptar el layout y la navegación
