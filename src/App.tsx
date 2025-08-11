@@ -9,6 +9,36 @@ import './App.css';
 
 function App() {
   const [count, setCount] = useState(0);
+  const [bounce, setBounce] = useState(false);
+
+  // Para animar cada vez que cambia el número
+  const triggerBounce = () => {
+    setBounce(false);
+    setTimeout(() => setBounce(true), 10);
+  };
+
+  const handleIncrement = () => {
+    triggerBounce();
+    setCount((c) => c + 1);
+  };
+
+  const handleDecrement = () => {
+    triggerBounce();
+    setCount((c) => c - 1);
+  };
+
+  const handleReset = () => {
+    triggerBounce();
+    setCount(0);
+  };
+
+  // Color dinámico según valor
+  let valueClass = "counter-value";
+  if (count > 0) valueClass += " positive";
+  else if (count < 0) valueClass += " negative";
+
+  // Añade la clase de rebote si bounce es true
+  if (bounce) valueClass += " bounce";
 
   return (
     <>
@@ -20,11 +50,28 @@ function App() {
           <img src={logo} className="logo" alt="Logo UMG" />
         </div>
         <h2>UMG CHIQUIMULILLA</h2>
-        <div className="card p-3 my-2">
-          <button className="btn btn-primary" onClick={() => setCount((count) => count + 1)}>
-            Boton de conteo de prueba... {count}
-          </button>
+
+        {/* Bloque contador elegante con animación */}
+        <div className="counter-card mx-auto my-3">
+          <div
+            className={valueClass}
+            onAnimationEnd={() => setBounce(false)}
+          >
+            {count}
+          </div>
+          <div className="d-flex justify-content-center gap-3">
+            <button className="btn btn-counter" onClick={handleIncrement}>
+              +1
+            </button>
+            <button className="btn btn-counter" onClick={handleDecrement}>
+              -1
+            </button>
+            <button className="btn btn-reset" onClick={handleReset}>
+              Reiniciar
+            </button>
+          </div>
         </div>
+
         <p className="read-the-docs">
           Esto es una prueba de una Web Responsivo
         </p>
